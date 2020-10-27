@@ -1,0 +1,64 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Videos List{% endblock %}
+
+{% load static %} 
+{% block videos_content %}
+  <div class="container">
+
+    <ul class="nav nav-tabs nav-video-list">
+      <li role="presentation" class="{% if action == 'abnormal' %} active {% endif %}"><a href="{{video.path_abnormal}}">Abnormal Videos</a></li>
+      <li role="presentation" class="{% if action == 'normal' %} active {% endif %}"><a href="{{video.path_normal}}">Normal Videos</a></li>
+      <!-- <li role="presentation"><a href="#">Orther</a></li> -->
+    </ul>
+    <div class='video-list' style="padding-top: 15px">
+      {% if gifs %}
+        {% for video in gifs %}
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <a href="{{ video.url }}" class = "thumbnail">
+            <img src="{{ video.src }}" style="padding: 5px" alt={{video.title}}>
+            <p class="text-center">{{ video.title }}</p>
+          </a>
+        </div>
+        {% endfor %}
+
+      {% else %}
+        <p>There are no videos in the server.</p>
+      {% endif %}
+    </div>
+
+  </div>
+{% endblock %}
+
+{% block javascript %}
+  <!-- <script type="text/javascript">
+    $(function(){
+      $('.nav-video-list>li>a').click(function() {
+        let video_action = $('li:active').attr('data-action');
+        $.ajax({
+          type: 'GET',
+          url: '/catalog/get-videos',
+          data: {
+            video_action,
+          },
+          success: function(data) {
+            let video_list = data.result;
+            let html = '';
+            for(video in video_list){
+              html.append(`
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <a href="${ video.url }" class = "thumbnail">
+                  <img src="/media/gifs/abnormal/${ video.title }.gif" alt='${video.title}'>
+                  ${ video.title }
+                </a>
+              </div>`);
+            }
+            $('video-list').innerHTML = html;
+          }
+        });
+      })
+    })
+  </script> -->
+
+{% endblock %}

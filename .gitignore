@@ -1,0 +1,5 @@
+*__pycache__
+*.pyc
+*.log
+fe_c3d/trained_models/c3d_sports1m.h5
+*.git

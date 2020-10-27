@@ -1,0 +1,60 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+{% comment %} use the files in the static folder in this template. {% endcomment %}
+
+{% block title %}Video {{ video.title }}{% endblock %}
+
+{% block videos_content %}
+
+<div class='container'>
+
+
+    <div class="row">
+        <div class='col-md-12'>
+            <div class='panel panel-default'>
+            </div>
+        </div>
+
+    </div>
+
+    <div class='col-sm-5 border-right text-center'>
+        <video controls id='video-player' width="100%" height="320" onended="FunctionEnded()" onpause="FunctionPause()" onplay="FunctionPlay()">
+            <source src="{{ video.url }}" type="video/mp4">
+        </video>
+    </div>
+    <div class='col-sm-7' style="display: relative">
+        
+    <div class="d-flex th-wraper">
+        <div class="th-list">
+            <h4>Video ID: <span id="video_id" style="color: blueviolet;background-color: white;" class="label label-default">{{ vid_det.video_id }}</span></h4>
+            <h4>Action: <span id="action" style="color: blueviolet;background-color: white;" class="label label-default">{{ vid_det.action }}</span></h4>
+            <h4>Location: <span id="location" style="color: blueviolet;background-color: white;" class="label label-default">{{ vid_det.location }}</span></h4>
+            <h4>Incident Time: <span id="incd_time" style="color: blueviolet;background-color: white;" class="label label-default">{{ vid_det.incident_time }}</span></h4>
+        </div>
+    </div>
+    </div>
+
+   
+</div>
+
+
+{% endblock %}
+
+{% block javascript %}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="{% static 'js/VideoFrame.min.js' %}"></script>
+<script src="{% static 'js/video_interactive.js' %}"></script>
+<script>
+function FunctionPlay(){
+    $("#play-pause").html('<img src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/pause-icon-18-256.png" style="height:23px;margin-bottom:2px"/> Pause');
+}    
+function FunctionPause(){
+    $("#play-pause").html('<img src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/play-icon-18-256.png" style="height:23px;margin-bottom:2px"/> Play');
+}
+function FunctionEnded(){
+    $("#play-pause").html('<img src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/play-icon-18-256.png" style="height:23px;margin-bottom:2px"/> Play');
+}
+</script>
+{% endblock %}
