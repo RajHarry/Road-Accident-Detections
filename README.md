@@ -14,17 +14,20 @@ time (see above example image).
 
 ### C3D
 ((Reference: https://arxiv.org/pdf/1412.0767.pdf))
-    - It Means “Convolution 3D”
-    - C3D is obtained by training a deep 3D convolutional network on a large annotated video
+
+* It Means “Convolution 3D”
+* C3D is obtained by training a deep 3D convolutional network on a large annotated video
 dataset(UCF crime dataset).
-    - The dataset contains various concepts encompassing objects, actions, scenes and other
+* The dataset contains various concepts encompassing objects, actions, scenes and other
 frequently occurring categories in videos.
-    - [image]
-    - Compared with Recurrent Neural Networks (RNN) based methods, C3D outperforms Long-term
+![c3d flow](media/c3d.png)
+    
+* Compared with Recurrent Neural Networks (RNN) based methods, C3D outperforms Long-term
 Recurrent Convolutional Networks (LRCN) and LSTM composite model by 14.1% and 9.4%,
 respectively.
 
 ### C3D Architecture:
+![c3d architecture](media/c3d%20architecture.png)
 
 ### C3D Feature Extraction:
 To extract C3D feature, a video is split into 16 frame long clips with a 8-frame overlap
@@ -39,8 +42,11 @@ scene classification (96.7% on YUPENN and 77.7% on Maryland), objet classificati
 egocentric object) and action similarity labeling (72.9% on ASLAN) problems in the video domain.
 We also approach the current best performance on action classification (76.4% on UCF101) without
 using optical flow.
+![c3d performance](media/c3d%20performance.png)
 
 ### Folder Structure:
+<hr>
+
 #### 1. fe_c3d:
     - It has all the C3D related files those are
     
@@ -68,7 +74,8 @@ using optical flow.
     - video -> input -> for saving input videos
 #### 5. staticfiles:
     it contains all the static files like images, css, fonts, js
-#### 6. templates:Base html templates
+#### 6. templates:
+    Base html templates
 
 
 ## Execution of the project
