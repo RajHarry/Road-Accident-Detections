@@ -1,5 +1,18 @@
 # Car Accident Detection Project
+A vision-based traffic accident detection system in order to detect, record, and report traffic accidents automatically.
 
+ *** If you like the Project, Give a star ***
+
+## Results/Output
+Resultant graph will shows abnormality in the graph when an accident occurs.
+
+#### Example 1
+![road accident 1](Result-Accident-1.gif)
+
+#### Example 2
+![road accident 2](Result-Accident-2.gif)
+
+## Project Details
 ### Anomaly Detection:
 Anomaly detection (aka outlier analysis) is a step in data mining that identifies data points,
 events, and/or observations that deviate from a dataset's normal behavior. Anomalous data can
